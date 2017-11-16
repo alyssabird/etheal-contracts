@@ -1,7 +1,9 @@
 # etheal-sale
 Solidity contract for [etheal](https://etheal.com) token and sale rounds
 
-## Contract Structure 
+[![Build Status](https://travis-ci.org/BlockchainLabsNZ/etheal-contracts.svg?branch=master)](https://travis-ci.org/BlockchainLabsNZ/etheal-contracts) [![Coverage Status](https://coveralls.io/repos/github/BlockchainLabsNZ/etheal-contracts/badge.svg?branch=master)](https://coveralls.io/github/BlockchainLabsNZ/etheal-contracts?branch=master)
+
+## Contract Structure
 
 ### Unique contracts
 1. EthealController: controlling the Etheal MiniMeToken
@@ -109,7 +111,7 @@ It implements partial refunding for the last contributor, so the user don't have
 Before token sale start parameters can be changed: max gas price and penalty, minimum contribution, minimum goal and soft and hard caps, starting and end times, and rate.
 
 
-It implements **whitelist** logic as follows: 
+It implements **whitelist** logic as follows:
 * Whitelisted days can be defined with corresponding max stakes, and whitelisted addresses can contribute until they have stakes no bigger than the max stake defined for that day.
 * After whitelist period everyone can contribute until reaching the maximum cap.
 * It takes into account the max gas price penalty, eg:
