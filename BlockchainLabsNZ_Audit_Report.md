@@ -1,7 +1,7 @@
 # Etheal Audit Report
 
 ## Preamble
-This audit report was undertaken by BlockchainLabs.nz for the purpose of providing feedback to LAToken. It has subsequently been shared publicly without any express or implied warranty.
+This audit report was undertaken by BlockchainLabs.nz for the purpose of providing feedback to Etheal. It has subsequently been shared publicly without any express or implied warranty.
 
 Solidity contracts were sourced from the public Github repo [thesved/etheal-sale](https://github.com/thesved/etheal-sale) prior to commit [908389dd18cf892aaff28c19536459dcc434571b](https://github.com/thesved/etheal-sale/tree/908389dd18cf892aaff28c19536459dcc434571b) - we would encourage all community members and token holders to make their own assessment of the contracts.
 
