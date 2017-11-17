@@ -68,4 +68,4 @@ Upon finalization of the contracts to be used by Etheal, the developers have dil
 ## Conclusion
 Overall we have been fully satisfied with the resulting contracts following the audit feedback period. We took part in carefully reviewing all source code provided, including both static and dynamic testing methodology.
 
-The developers have followed common best practices and demonstrated an awareness for the need of adding clarity to certain aspects in their contracts to avoid confusion and improve transparency.
+The developers have followed common best practices and demonstrated an awareness for attention to detail. We were pleased to see contracts in a modular format to avoid confusion and improve operability for all parties.
