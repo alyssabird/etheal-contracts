@@ -1,6 +1,57 @@
 # Test results and gas usage
 
-[![Build Status](https://travis-ci.org/BlockchainLabsNZ/etheal-contracts.svg?branch=master)](https://travis-ci.org/BlockchainLabsNZ/etheal-contracts) [![Coverage Status](https://coveralls.io/repos/github/BlockchainLabsNZ/etheal-contracts/badge.svg?branch=master)](https://coveralls.io/github/BlockchainLabsNZ/etheal-contracts?branch=master)
+[![Build Status](https://travis-ci.org/BlockchainLabsNZ/etheal-contracts.svg?branch=master)](https://travis-ci.org/BlockchainLabsNZ/etheal-contracts)
+
+## Test Coverage
+
+[![Coverage Status](https://coveralls.io/repos/github/BlockchainLabsNZ/etheal-contracts/badge.svg?branch=master)](https://coveralls.io/github/BlockchainLabsNZ/etheal-contracts?branch=master)
+
+*The following contracts have 100% coverage:*
+- TokenVesting.sol
+- TokenController.sol
+- EthealToken.sol
+- ERC20MiniMe.sol
+- ERC20.sol
+
+*The following contracts are above 80% coverage:*
+- Crowdsale.sol
+  The `transferToken` function is missing a test but the overriden version is tested in `ethealNormalSale` and `ethealPreSale` contracts
+- SafeMath.sol
+  This contract is identical to the OpenZeppelin library so it is generally considered well tested
+- Ownable.sol
+  There is no test to make sure ownership cannot be transferred if the new owners address is 0x0
+- EthealNormalSale.sol
+  There is no test for `getContributors`, and there are some fail cases that are not tested
+- EthealController.sol
+  Some of the fail cases are not tested
+- RefundVault.sol
+  The fail cases are not tested
+
+*The following contracts are above 60% coverage:*
+- HasNoTokens.sol
+  Extracting ether is not tested, only token retrieval
+- Pausable.sol
+  `unpause` is tested, but `pause` and it's associated modifiers are not tested
+- Controlled.sol
+  The `onlyController` modifier is not tested
+- Hodler.sol
+  Some fail cases are not tested, `setHodlerStake` function is not tested
+- RefundableCrowdsale.sol
+  The overriden version is tested in `ethealPreSale`, so this contract is fully tested
+- EthealPreSale.sol
+  Some fail cases are not tested, `getContributors` is not tested
+- FinalizableCrowdsale.sol
+  The fail case for `finalize` is not tested
+
+*The remaining contracts have less than 60% coverage:*
+- CappedCrowdsale.sol
+  The `BuyTokens` function is tested in the overriden version in `ethealNormalSale.sol` and `ethealPreSale.sol`
+- MiniMeToken.sol
+  This is a copy of [giveth minime](https://github.com/Giveth/minime), so it can be considered tested
+- Wallet.sol
+  This is a copy of [consensys multisig](https://github.com/ConsenSys/MultiSigWallet/blob/master/MultiSigWalletWithDailyLimit.sol), so it can be considered tested
+
+## Gas Usage
 
 ```
 Contract: Controller
