@@ -62,11 +62,11 @@ The audit report is focused on the following key areas - though this is not an e
 
 We have reviewed this document to ensure that there are no ommisions and that the developers' comments are a fair summary of each function.
 
-# Test Results and Gas Usage
+## Test Results
 
 [![Build Status](https://travis-ci.org/BlockchainLabsNZ/etheal-contracts.svg?branch=master)](https://travis-ci.org/BlockchainLabsNZ/etheal-contracts)
 
-## Test Coverage
+### Test Coverage
 
 [![Coverage Status](https://coveralls.io/repos/github/BlockchainLabsNZ/etheal-contracts/badge.svg?branch=master)](https://coveralls.io/github/BlockchainLabsNZ/etheal-contracts?branch=master)
 
@@ -115,7 +115,8 @@ We have reviewed this document to ensure that there are no ommisions and that th
 - Wallet.sol
   This is a copy of [consensys multisig](https://github.com/ConsenSys/MultiSigWallet/blob/master/MultiSigWalletWithDailyLimit.sol), so it can be considered tested
 
-Upon finalization of the contracts to be used by Etheal, the developers have diligently enumerated gas usage for each function of the contracts to ensure there aren't any unforeseen issues with exceeding the block size GasLimit. A detailed report can be found in [Gas_Consumption.md](https://github.com/BlockchainLabsNZ/etheal-contracts/blob/master/Gas_Consumption.md).
+### Gas Consumption
+Upon finalization of the contracts to be used by Etheal, the contracts were assessed on the gas usage of each function to ensure there aren't any unforeseen issues with exceeding the block size GasLimit. A detailed report can be found in [Gas_Consumption.md](https://github.com/BlockchainLabsNZ/etheal-contracts/blob/master/Gas_Consumption.md).
 
 ## Conclusion
 Overall we have been fully satisfied with the resulting contracts following the audit feedback period. We took part in carefully reviewing all source code provided, including both static and dynamic testing methodology.
