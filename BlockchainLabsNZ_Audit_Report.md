@@ -41,9 +41,9 @@ The audit report is focused on the following key areas - though this is not an e
 ## Findings
 ### Minor
 - **The constant keyword is being used in functions, this will be deprecated at the next breaking release** - `Best practice` `constant` should not be used for functions, it is going to be invalid at the next breaking release of solidity. Refer to [solidity/issues/192](https://github.com/ethereum/solidity/issues/992). Some functions have already been changed to `view` or `pure` but this is not consistent. [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/7)
-  - [ ] Not Fixed
+  - [x] Fixed [641e021a](https://github.com/thesved/etheal-sale/commit/641e021abecc50da0413683ed90e53d0de36ad41)
 - **Keep formatting of if statements consistent** - `Best practice` We would recommend avoiding single line `if` statements without using braces, this pattern is prone for introducing bugs. Eg. `EthealPreSale.sol` [Line 420](https://github.com/BlockchainLabsNZ/etheal-contracts/blob/master/contracts/EthealPreSale.sol#L420) [Line 142](https://github.com/BlockchainLabsNZ/etheal-contracts/blob/master/contracts/EthealPreSale.sol#L142) [Line 177](https://github.com/BlockchainLabsNZ/etheal-contracts/blob/master/contracts/EthealPreSale.sol#L177) [Line 420](https://github.com/BlockchainLabsNZ/etheal-contracts/blob/master/contracts/EthealPreSale.sol#L420) ... [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/5)
-  - [ ] Not Fixed
+  - [x] Fixed [22f606f6](https://github.com/thesved/etheal-sale/commit/22f606f67e93cf972431a1add9c21b14738aab77)
 - **Expected ' { ' after for statement** - `Correctness`  [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/3)
 ![claimtoken](https://user-images.githubusercontent.com/17868193/32927640-9c4a9ef4-cbb2-11e7-81ad-268e311d3c99.png)
   - [x] Fixed [908389dd](https://github.com/thesved/etheal-sale/commit/908389dd18cf892aaff28c19536459dcc434571b)
