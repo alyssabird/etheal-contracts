@@ -3,50 +3,6 @@
 Mar 15, 2018, BlockchainLabsNZ
 
 
-|   Contract   |                    Function                    | Visibility | Constant |             Returns             |   Modifiers    |              Static Analysis              |   Test Coverage    | Functional Analysis |
-|--------------|------------------------------------------------|------------|----------|---------------------------------|----------------|-------------------------------------------|--------------------|---------------------|
-| Distribution | Distribution(address,address,uint256,uint256)  | public     | false    |                                 | onlyController | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | distributionCap()                              | public     | true     | uint256                         |                | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | finalize()                                     | public     | false    |                                 | onlyController | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | proxyMintTokens(address,uint256,string,string) | public     | false    | bool                            | onlyController | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | onTransfer(address,address,uint256)            | public     | false    | bool                            |                | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | onApprove(address,address,uint256)             | public     | false    | bool                            |                | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | claimTokens(address)                           | public     | false    |                                 | onlyController | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | totalTransactionCount(address)                 | public     | true     | uint                            |                | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | getTransactionAtIndex(address,uint)            | public     | true     | _amount,_paidCurrency,_paidTxID |                | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | addTransaction(Transaction,uint,string,string) | internal   | false    |                                 |                | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | doMint(address,uint256)                        | internal   | false    |                                 |                | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| Distribution | getBlockNumber()                               | internal   | true     | uint256                         |                | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-
-
-|  Contract   |                   Function                    | Visibility | Constant |  Returns  |          Modifiers          |              Static Analysis              |   Test Coverage    | Functional Analysis |
-|-------------|-----------------------------------------------|------------|----------|-----------|-----------------------------|-------------------------------------------|--------------------|---------------------|
-| MiniMeToken | MiniMeToken(address,uint,string,uint8,string) | public     | false    |           |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | transfer(address,uint256)                     | public     | false    | success   |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | transferFrom(address,address,uint256)         | public     | false    | success   |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | doTransfer(address,address,uint)              | internal   | false    | bool      |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | balanceOf(address)                            | public     | true     | balance   |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | approve(address,uint256)                      | public     | false    | success   |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | allowance(address,address)                    | public     | true     | remaining |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | approveAndCall(address,uint256,bytes)         | public     | false    | success   |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | totalSupply()                                 | public     | true     | uint      |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | balanceOfAt(address,uint)                     | public     | true     | uint      |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | totalSupplyAt(uint)                           | public     | true     | uint      |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | mintTokens(address,uint)                      | public     | false    | bool      | onlyController,notFinalized | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | destroyTokens(address,uint)                   | public     | false    | bool      | onlyControllerOrBurner      | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | getValueAt(Checkpoint,uint)                   | internal   | true     | uint      |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | updateValueAtNow(Checkpoint,uint)             | internal   | false    |           |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | isContract(address)                           | internal   | true     | bool      |                             | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | min(uint,uint)                                | internal   | false    | uint      | pure                        | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | claimTokens(address)                          | public     | false    |           | onlyController              | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-| MiniMeToken | finalize()                                    | public     | false    |           | onlyController,notFinalized | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-
-
-| Contract | Function | Visibility | Constant | Returns |  Modifiers  |              Static Analysis              |   Test Coverage    | Functional Analysis |
-|----------|----------|------------|----------|---------|-------------|-------------------------------------------|--------------------|---------------------|
-| SEN      | SEN()    | public     | false    |         | MiniMeToken | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
-
-
 |    Contract     |         Function         | Visibility | Constant | Returns | Modifiers |              Static Analysis              |   Test Coverage    | Functional Analysis |
 |-----------------|--------------------------|------------|----------|---------|-----------|-------------------------------------------|--------------------|---------------------|
 | CappedCrowdsale | CappedCrowdsale(uint256) | public     | false    |         |           | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
