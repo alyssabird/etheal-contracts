@@ -42,7 +42,8 @@ Mar 15, 2018, BlockchainLabsNZ
 | EthealNormalSale | getContributors(bool,bool)                                                                | public     | false    | contributors | view                                           | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
 | EthealNormalSale | getHealBalance()                                                                          | public     | false    | uint256      | view                                           | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
 
-
+|     Contract     |                                         Function                                          | Visibility | Constant |   Returns    |                   Modifiers                    |              Static Analysis              |   Test Coverage    | Functional Analysis |
+|------------------|-------------------------------------------------------------------------------------------|------------|----------|--------------|------------------------------------------------|-------------------------------------------|--------------------|---------------------|
 | EthealPromoTokenController | extractTokens(address,address)           | public     | false    |         | onlyOwner | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
 | EthealPromoTokenController | setNewController(address)                | public     | false    |         | onlyOwner | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
 | EthealPromoTokenController | setCrowdsale(address)                    | public     | false    |         | onlyOwner | :white_check_mark::ballot_box_with_check: | :white_check_mark: | :white_check_mark:  |
