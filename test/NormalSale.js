@@ -1,9 +1,9 @@
-import ether from './helpers/ether'
-import gwei from './helpers/gwei'
-import {advanceBlock} from './helpers/advanceToBlock'
-import {increaseTimeTo, duration} from './helpers/increaseTime'
-import latestTime from './helpers/latestTime'
-import EVMThrow from './helpers/EVMThrow'
+import ether from './helpers/ether.js'
+import gwei from './helpers/gwei.js'
+import {advanceBlock} from './helpers/advanceToBlock.js'
+import {increaseTimeTo, duration} from './helpers/increaseTime.js'
+import latestTime from './helpers/latestTime.js'
+import EVMThrow from './helpers/EVMThrow.js'
 
 const BigNumber = web3.BigNumber
 
