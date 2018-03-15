@@ -2,12 +2,13 @@ var MiniMeTokenFactory = artifacts.require("MiniMeTokenFactory");
 var EthealToken = artifacts.require("EthealToken");
 var Wallet = "0x051efA48de933EF507e01A477274Cb4Cc101Be6B";
 var PreSale = artifacts.require("EthealPreSale");
-var NormalSale = artifacts.require("EthealNormalSale");
-var SafeMath = artifacts.require("SafeMath");
 var EthealController = artifacts.require("EthealController");
 var RefundVault = artifacts.require("RefundVault");
 var Hodler = artifacts.require("Hodler");
 var TokenVesting = artifacts.require("TokenVesting");
+
+var NormalSale = artifacts.require("EthealNormalSale");
+var SafeMath = artifacts.require("SafeMath");
 var EthealDeposit = artifacts.require("EthealDeposit");
 var EthealWhitelist = artifacts.require("EthealWhitelist");
 var EthealPromoToken = artifacts.require("EthealPromoToken");
