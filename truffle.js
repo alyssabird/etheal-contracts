@@ -24,9 +24,9 @@ module.exports = {
     },
     coverage: {
       host: "localhost",
-      network_id: "*", 
-      port: 8555,         
-      gas: 0xfffffffffff, 
+      network_id: "*",
+      port: 8555,
+      gas: 0xfffffffffff,
       gasPrice: 0x0
     }
   },
@@ -36,11 +36,11 @@ module.exports = {
       runs: 200
     }
   },
-  mocha: {
-      reporter: 'eth-gas-reporter',
-      reporterOptions: {
-          currency: 'USD',
-          gasPrice: 21
-      }
-  }
+  // mocha: {
+  //     reporter: 'eth-gas-reporter',
+  //     reporterOptions: {
+  //         currency: 'USD',
+  //         gasPrice: 21
+  //     }
+  // }
 };
