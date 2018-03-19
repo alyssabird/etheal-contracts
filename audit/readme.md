@@ -88,7 +88,7 @@ The audit report is focused on the following key areas - though this is not an e
 
 ## Observations
 
-- The `AbstractVirtualToken` contract uses some complex logic which is only really understandable by an experienced developer. The average investor who might inspect the contracts would not be able to understand what is happening with the bitwise operations and the "MASK"s being used. Obviously you need to have a balance when documenting so you don't waste your time, but we think that the "MASK" concept in this contract could do with a concise docstring explaining it's usage.
+- The `AbstractVirtualToken` contract uses some complex logic which is only really understandable by an experienced developer. The average investor who might inspect the contracts would not be able to understand what is happening with the bitwise operations and the "MASK"s being used. We recommend furthur documentation for the "MASK" concept in this contract.
 
 ## Conclusion
 
