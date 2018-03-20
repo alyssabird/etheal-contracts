@@ -25,14 +25,14 @@ There are 3 categories of investors:
 
 The lowest amount to contribute for all categories of investors is 0.1 ETH.
 
-To buy tokens, they have few options:
+To buy tokens, they have a few options:
 
 - call `deposit()` function of deposit contract
 - send Ethers to deposit contract itself (through payable fallback function)
 - call `buyTokens()` function of the normal sales contract.
 
-The last one can be done only by whitelisted customers OR within whitelist treshold limit, otherwise it will be reverted. 
-<br>Therefore it is worth to consider bying HEAL tokens through deposit contract interface. 
+The last one can be done only by whitelisted customers OR within whitelist threshold limit, otherwise it will be reverted. 
+<br>Therefore it is worth to consider buying HEAL tokens through deposit contract interface. 
 
 #### Proccess flow
 
@@ -62,13 +62,13 @@ Pre requisites:
   - **Fallback function** <br>is an alias for the `deposit()` function.
 
   - **Deposit**
-<br>It records all transactions but allows to buy tokens only to whitelisted (or authorised) contributors by forwarding transaction through `forwardTransactionInternal()`. All unforwarded transactions could be refunded AFTER sale period is over by calling `refundTransaction()` function.
+<br>It records all transactions and allows investors to buy tokens only to whitelisted (or authorised) contributors by forwarding transaction through `forwardTransactionInternal()`. All unforwarded transactions can be refunded AFTER sale period is over by calling `refundTransaction()` function.
 
   - **forwardTransactionInternal**
 <br>It forwards approved transactions to the `depositETH()` function of the contract saved in the `sale` (see below).  
 
   - **refundTransaction**
-<br>Anyone can call that function after Sale is over. The investor of transaction with given ID will get his/her contribution back. 
+<br>Anyone can call this function after the Sale is over. The investor of a transaction with given ID will get his/her contribution back. 
 
 
 
@@ -79,7 +79,7 @@ Contracts: [EthealPromoTokens.sol](https://github.com/BlockchainLabsNZ/etheal-co
 One can get bonuses by:
 
 - early involvement
-- holding tokens
+- hodling tokens
 - high contribution amount
 - finding the easter egg 
 
@@ -89,25 +89,23 @@ One can get bonuses by:
 ## Normal sales
 Contract: [EthealNormalSales.sol](https://github.com/BlockchainLabsNZ/etheal-contracts/blob/master/contracts/EthealNormalSale.sol)
 
-The contract regulate the Sale period and allow user to buy tokens.
-There is limitation: customers can buy tokens only if the amount of ETH to contribute doesn't exceed the allowed treshold, otherwise the transaction will be reverted. 
-
-It is not a bad idea to check how far you are from the cap with Etheal website before buying token – to avoid gas spending in case if hard cap will be reached.
+The contract regulates the Sale period and allows users to buy tokens.
+There is a limitation: customers can buy tokens only if the amount of ETH to contribute doesn't exceed the allowed threshold (depending on whether you are whitelisted or not), otherwise the transaction will be reverted. 
 
 ### Important Functions
 
   - **depositETH**
-<br>This function is called automatically from deposit contract when whitelisted investor makes new contribution. It calls the `handleContribution()` function.
+<br>This function is called automatically from deposit contract when whitelisted investor makes a new contribution. It calls the `handleContribution()` function.
 
   - **buyTokens**
-<br>Can be called by anyone, but only whitelisted investors can contribute more than treshold amount (1 Ether for the moment of audit). It forwards call to the `handlePayment()` function.
+<br>Can be called by anyone, but only whitelisted investors can contribute more than threshold amount (1 Ether). It forwards the call to the `handlePayment()` function.
 
   - **handlePayment**
-<br>It forwards call the `handleContribution ()` function (which check the if contribution doesn't reach the soft cap and exchange it for HEAL tokens) and refunds the exceeded ETH amount back to investor.
+<br>It forwards the call to the `handleContribution ()` function (which will check if the contribution doesn't reach the soft cap and exchange it for HEAL tokens) and refunds the exceeded ETH amount back to investor.
 
   - **handleContribution**
 <br>The functions checks if:
-	  - the requested amount to contribute is less than available supply,
+	  - the requested amount to contribute is less than the available supply,
 	  - the hard cap is not reached (if so - no contribution is possible),
 	  - the soft cap is not reached (is so - it starts timer before the Sale is over).
 
@@ -122,5 +120,5 @@ It is not a bad idea to check how far you are from the cap with Etheal website b
   - **getBonus**
 <br>It calculates bonus multiplier for the amount of tokens to transfer. It consider the day of Sale period and ETH contributed amount (for more than 10ETH and for more than 100ETH).
 
-	It also add extra promo bonuses calculated IF contributors transfered their promo tokens (HEALP) back to the promo contract or to the sale contract or to the address `0x1`. 
+	It also adds extra promo bonuses calculated IF contributors transfered their promo tokens (HEALP) back to the promo contract, to the sale contract, or to the address `0x1`. 
 
