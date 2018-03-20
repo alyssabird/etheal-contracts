@@ -12,7 +12,7 @@ The PreSale period is already over, and customers can buy HEAL tokens during Sal
 \* - **Disclaimer**
 	
 	All numbers in this document are valid for the moment of audit. 
-	We can not guarantee the same numbers after contracts are deployed because they can be changed by authors. 
+	We cannot guarantee the same numbers after contracts are deployed because they can be changed by authors. 
 	Please read the source code of deployed contracts to be sure.
 
 
@@ -20,7 +20,7 @@ There are 3 categories of investors:
 
 - Non-whitelisted investors - can contribute up to 1 ETH
 - Whitelisted investors - no upper limits (up to the hard cap)
-- Whitelisted (offchain) investors - no upper limits (up to the hard cap)
+- Whitelisted (off-chain) investors - no upper limits (up to the hard cap)
 
 
 The lowest amount to contribute for all categories of investors is 0.1 ETH.
@@ -79,7 +79,7 @@ Contracts: [EthealPromoTokens.sol](https://github.com/BlockchainLabsNZ/etheal-co
 One can get bonuses by:
 
 - early involvement
-- hodling tokens
+- holding tokens
 - high contribution amount
 - finding the easter egg 
 
