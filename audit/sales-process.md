@@ -34,7 +34,8 @@ To buy tokens, they have few options:
 The last one can be done only by whitelisted customers OR within whitelist treshold limit, otherwise it will be reverted. 
 <br>Therefore it is worth to consider bying HEAL tokens through deposit contract interface. 
 
-####Proccess flow
+#### Proccess flow
+
 From the high level perspective the sale process consist of next steps:
 
 - Deposit (by sending to deposit contract itself or by calling `deposit()` function) any amount of Ethers. 
@@ -116,7 +117,7 @@ It is not a bad idea to check how far you are from the cap with Etheal website b
   - **transferToken**
 <br>It checks if requested amount is valid (Sale is not over, non-zero amount, amount is greater or equal to a minimal contribution amount), record this contribution (investor address and contributed amount), checks if the accumulated contribution amount of that investor is allowed (if the address of contributor is not whitelisted).
 
-After that, it calculates all bonuses (by calling the `getBonus()` function), increases the token balance of contributor accordingly and fire event `TokenPurchase()`;
+	After that, it calculates all bonuses (by calling the `getBonus()` function), increases the token balance of contributor accordingly and fire event `TokenPurchase()`;
 
   - **getBonus**
 <br>It calculates bonus multiplier for the amount of tokens to transfer. It consider the day of Sale period and ETH contributed amount (for more than 10ETH and for more than 100ETH).
