@@ -80,7 +80,7 @@ The audit report is focused on the following key areas - though this is not an e
 It is recommended to explicitly define your variable types, this confirms your intent and safeguards against a future when the default type changes. It is better to keep them consistent in the same contract ... [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/16)
 
 - **Small gas optimisation (massNotify)** - `Best practice`
-<br>Assigning _owner.length to a local variable costs more than directly using the array length.<br>Test result: It costs around 10 gas more on calling this function each time ... [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/15)
+<br>Assigning `_owner.length` to a local variable costs more than directly using the array length.<br>Test result: It costs around 10 gas more on calling this function each time ... [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/15)
 
 ### Moderate
 
