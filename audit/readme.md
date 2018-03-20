@@ -5,15 +5,15 @@ This audit report was undertaken by **BlockchainLabs.nz** for the purpose of pro
 
 It has subsequently been shared publicly without any express or implied warranty.
 
-Solidity contracts were sourced from the public Github repo [thesved/etheal-sale](https://github.com/thesved/etheal-sale) at this commit [7649dda4ad2d140b60a49f6de01f7f0df9cd559e](https://github.com/thesved/etheal-sale/tree/7649dda4ad2d140b60a49f6de01f7f0df9cd559e) - we would encourage all community members and token holders to make their own assessment of the contracts.
+Solidity contracts were sourced from the public Github repo [thesved/etheal-sale](https://github.com/thesved/etheal-sale) at this commit [1eb8d114a0e1794f27d3577ef9a109c500d31643](https://github.com/thesved/etheal-sale/commit/1eb8d114a0e1794f27d3577ef9a109c500d31643) - we would encourage all community members and token holders to make their own assessment of the contracts.
 
 ## Scope
 The following contracts were subject for static, dynamic and functional analyses:
 
-- [EthealDeposit.sol](https://github.com/thesved/etheal-sale/blob/7649dda4ad2d140b60a49f6de01f7f0df9cd559e/contracts/EthealDeposit.sol)
-- [EthealNormalSale.sol](https://github.com/thesved/etheal-sale/blob/7649dda4ad2d140b60a49f6de01f7f0df9cd559e/contracts/EthealNormalSale.sol)
-- [EthealWhitelist.sol](https://github.com/thesved/etheal-sale/blob/7649dda4ad2d140b60a49f6de01f7f0df9cd559e/contracts/EthealWhitelist.sol)
-- [EthealPromoTokenController.sol](https://github.com/thesved/etheal-sale/blob/7649dda4ad2d140b60a49f6de01f7f0df9cd559e/contracts/EthealPromoTokenController.sol)
+- [EthealDeposit.sol](https://github.com/thesved/etheal-sale/blob/1eb8d114a0e1794f27d3577ef9a109c500d31643/contracts/EthealDeposit.sol)
+- [EthealNormalSale.sol](https://github.com/thesved/etheal-sale/blob/1eb8d114a0e1794f27d3577ef9a109c500d31643/contracts/EthealNormalSale.sol)
+- [EthealWhitelist.sol](https://github.com/thesved/etheal-sale/blob/1eb8d114a0e1794f27d3577ef9a109c500d31643/contracts/EthealWhitelist.sol)
+- [EthealPromoToken.sol](https://github.com/thesved/etheal-sale/blob/1eb8d114a0e1794f27d3577ef9a109c500d31643/contracts/EthealPromoToken.sol)
 
 ## Focus areas
 The audit report is focused on the following key areas - though this is not an exhaustive list.
@@ -72,11 +72,20 @@ The audit report is focused on the following key areas - though this is not an e
 
 ### Minor
 
-- None found
+- **Differentiate functions and events by names** - `Best practice`
+<br>Favor capitalization and a prefix in front of events (we suggest Log), to prevent the risk of confusion between functions and events ... [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/20)
+
+- **Variable type declarations should be consistent** - `Best practice`
+<br>
+It is recommended to explicitly define your variable types, this confirms your intent and safeguards against a future when the default type changes. It is better to keep them consistent in the same contract ... [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/16)
+
+- **Small gas optimisation (massNotify)** - `Best practice`
+<br>Assigning _owner.length to a local variable costs more than directly using the array length.<br>Test result: It costs around 10 gas more on calling this function each time ... [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/15)
 
 ### Moderate
 
-- None found
+- **Log transaction ID on adding deposit** - `Best practice`
+<br>Now only investor address and current transaction amount is logged. Suggest logging the transaction ID also. This ID can be used later to forward transaction ... [View on GitHub](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/18)
 
 ### Major
 
@@ -88,7 +97,7 @@ The audit report is focused on the following key areas - though this is not an e
 
 ## Observations
 
-- The `AbstractVirtualToken` contract uses some complex logic which is only really understandable by an experienced developer. The average investor who might inspect the contracts would not be able to understand what is happening with the bitwise operations and the "MASK"s being used. We recommend furthur documentation for the "MASK" concept in this contract.
+- The `AbstractVirtualToken` contract uses some complex logic which is only really understandable by an experienced developer. The average investor who might inspect the contracts would not be able to understand what is happening with the bitwise operations and the "MASK"s being used. We recommend further documentation for the "MASK" concept in this contract.
 
 ## Conclusion
 
