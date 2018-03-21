@@ -17,6 +17,7 @@ matrix:
   allow_failures:
     - env: SOLIDITY_COVERAGE=true
 script:
+  - npm run gana
   - npm test
 after_script:
   - ./node_modules/.bin/solidity-coverage && cat coverage/lcov.info | ./node_modules/.bin/coveralls
