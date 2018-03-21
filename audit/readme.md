@@ -16,7 +16,7 @@ The following contracts were subject for static, dynamic and functional analyses
 - [EthealPromoToken.sol](https://github.com/thesved/etheal-sale/blob/1eb8d114a0e1794f27d3577ef9a109c500d31643/contracts/EthealPromoToken.sol)
 
 ## Focus areas
-The audit report focuses on the following key areas, although this list is not exhuastive.
+The audit report focuses on the following key areas, although this list is not exhaustive.
 
 ### Correctness
 - No correctness defects uncovered during static analysis?
