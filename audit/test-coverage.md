@@ -12,13 +12,12 @@ File                       |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovere
 Full coverage report of related contracts [is here](coverage/contracts/index.html).
 
 <br>
-## Functions that are not covered
 
-Legend:
+## Functions that are not covered, legend:
 
-- **[ I ]** – IF path not tested 
-- **[ E ]** – Else path not tested 
-- **[ X ]** – Nothing tested
+`[I]` – IF path not taken<br>
+`[E]` – Else path not taken <br>
+`[X]` – Function was not tested at all
 
 <br>
 
@@ -91,7 +90,9 @@ The function overloads another `buyTokens()` function with extra argument `_whit
  
         TokenPurchase(msg.sender, _beneficiary, _weiAmount, tokens, contributorsKeys.length, weiRaised);
     }
+
 ```
+
 Requires that beneficiary account is exist.
 <br>Nothing to test.
 
@@ -116,6 +117,7 @@ Requires that beneficiary account is exist.
         super.finalization();
     }    
 ```
+
 Else path is tested here: [tx hash]()
 
 
@@ -150,6 +152,7 @@ Else path is tested here: [tx hash]()
     }
   
 ```
+
 Else path is tested here: [tx hash]()
 
 
@@ -158,8 +161,6 @@ Else path is tested here: [tx hash]()
 <br>
 
 ### AbstractVirtualToken.sol
-
-#### contract Token
 
 ```
 [x] function balanceOf (address _owner) view returns (uint256 balance) {
@@ -175,7 +176,7 @@ ERC20 standard function.
 ```
     function transfer (address _to, uint256 _value) returns (bool success) {
         uint256 fromBalance = accounts[msg.sender];
-[x]     if (fromBalance < _value) return false;
+[I]     if (fromBalance < _value) return false;
         if (_value > 0 && msg.sender != _to) {
             accounts[msg.sender] = fromBalance.sub(_value);
             accounts[_to] = accounts[_to].add(_value);
@@ -183,13 +184,17 @@ ERC20 standard function.
         }
         return true;
     }
+```
+IF path is tested here: [tx hash]()
 
+<br>
 
+```
     function transferFrom (address _from, address _to, uint256 _value) returns (bool success) {
         uint256 spenderAllowance = allowances[_from][msg.sender];
-[x]     if (spenderAllowance < _value) return false;
+[I]     if (spenderAllowance < _value) return false;
         uint256 fromBalance = accounts[_from];
-[x]     if (fromBalance < _value) return false;
+[I]     if (fromBalance < _value) return false;
  
         allowances[_from][msg.sender] = spenderAllowance.sub(_value);
  
@@ -201,27 +206,54 @@ ERC20 standard function.
         return true;
     }
 ```
+IF path (spenderAllowance < _value) is tested here: [tx hash]()
+<br>
+IF path (fromBalance < _value) is tested here: [tx hash]()
 
-#### contract AbstractToken is Token
+
+<br>
 
 ```
-[x] function totalSupply () view returns (uint256 supply) {
+[X] function totalSupply () view returns (uint256 supply) {
         return tokensCount;
     }   
+```
+View modifier. Return variable. Nothing to test. 
 
 
+<br>
+
+```
+function transferFrom (address _from, address _to, uint256 _value) returns (bool success) {
+        if (_value > allowance(_from, msg.sender)) return false;
+[I]        if (_value > balanceOf(_from)) return false;
+        else {
+            materializeBalanceIfNeeded(_from, _value);
+            return AbstractToken.transferFrom(_from, _to, _value);
+        }
+    }
+```    
+IF path is tested here: [tx hash]()
+
+<br>
+
+```
     function getVirtualBalance (address _owner) private view returns (uint256 _virtualBalance) {
         if (accounts [_owner] & MATERIALIZED_FLAG_MASK != 0) return 0;
         else {
             _virtualBalance = virtualBalanceOf(_owner);
             uint256 maxVirtualBalance = MAXIMUM_TOKENS_COUNT.sub(tokensCount);
-[x]         if (_virtualBalance > maxVirtualBalance)
+[I]         if (_virtualBalance > maxVirtualBalance)
                 _virtualBalance = maxVirtualBalance;
         }
     }     
 
+```
+IF path is tested here: [tx hash]()
 
+<br>
 
+```
     function materializeBalanceIfNeeded (address _owner, uint256 _value) private {
         uint256 storedBalance = accounts[_owner];
         if (storedBalance & MATERIALIZED_FLAG_MASK == 0) {
@@ -229,7 +261,7 @@ ERC20 standard function.
             if (_value > storedBalance) {
                 // Real balance is not enough
                 uint256 virtualBalance = getVirtualBalance(_owner);
-[x]             require (_value.sub(storedBalance) <= virtualBalance);
+[E]             require (_value.sub(storedBalance) <= virtualBalance);
                 accounts[_owner] = MATERIALIZED_FLAG_MASK | storedBalance.add(virtualBalance);
                 tokensCount = tokensCount.add(virtualBalance);
             }
@@ -237,3 +269,8 @@ ERC20 standard function.
     }
     
 ```
+ELSE path is tested here: [tx hash]()
+
+<br>
+
+
