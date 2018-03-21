@@ -1273,8 +1273,8 @@ contract('NormalSale', function ([deployer, investor, wallet, purchaser, purchas
             let event = logs.find(e => e.event === 'TokenPurchase')
 
             should.exist(event)
-            event.args._purchaser.should.equal(investor)
-            event.args._beneficiary.should.equal(investor)
+            event.args._purchaser.should.equal(purchaser)
+            event.args._beneficiary.should.equal(purchaser)
             event.args._value.should.be.bignumber.equal(minContribution)
             event.args._amount.should.be.bignumber.equal(minContribution.mul(rate).mul(hourBonuses[0]).div(100))
             event.args._participants.should.be.bignumber.equal(2)
