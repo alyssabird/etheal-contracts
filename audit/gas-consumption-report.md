@@ -1,7 +1,6 @@
 # Gas consumption report
 performed by Blockchain Labs, March 15, 2018
 
-
 ```
   Contract: NormalSale
     creating a valid crowdsale
